@@ -45,4 +45,7 @@ Any other strings will be left intact:
 ]
 ```
 
-Expressions should be [SymPy compatible](https://docs.sympy.org/latest/tutorial/basic_operations.html), since [`parse_expr`](https://docs.sympy.org/latest/modules/parsing.html#sympy.parsing.sympy_parser.parse_expr) is used for evaluation.
+## Notes
+
+- `myaml` is built on top of [PyYAML's `safe_load`](https://pyyaml.org/wiki/PyYAMLDocumentation).
+- expressions should be [SymPy compatible](https://docs.sympy.org/latest/tutorial/basic_operations.html), since [`parse_expr`](https://docs.sympy.org/latest/modules/parsing.html#sympy.parsing.sympy_parser.parse_expr) is used for evaluation.
