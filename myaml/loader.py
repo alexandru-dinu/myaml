@@ -15,26 +15,26 @@ class Evaluator(ast.NodeTransformer):
             if isinstance(node, ast.Num):
                 return True
 
-            elif isinstance(node, ast.Expression):
+            if isinstance(node, ast.Expression):
                 return _is_arithmetic(node.body)
 
-            elif isinstance(node, ast.UnaryOp):
+            if isinstance(node, ast.UnaryOp):
                 valid_op = isinstance(node.op, Evaluator.__UNARY_OPS)
                 return valid_op and _is_arithmetic(node.operand)
 
-            elif isinstance(node, ast.BinOp):
+            if isinstance(node, ast.BinOp):
                 valid_op = isinstance(node.op, Evaluator.__BINARY_OPS)
                 return valid_op and _is_arithmetic(node.left) and _is_arithmetic(node.right)
 
-            elif isinstance(node, ast.Call):
+            if isinstance(node, ast.Call):
                 return all(map(_is_arithmetic, node.args))
 
-            else:
-                raise ValueError(f'Ignoring node {node}')
+            # unsupported node
+            raise ValueError(f'Ignoring node {node}')
 
         try:
             return _is_arithmetic(ast.parse(string, mode='eval'))
-        except (SyntaxError, ValueError) as e:
+        except (SyntaxError, ValueError):
             return False
 
     def __evaluate(self, expr):
