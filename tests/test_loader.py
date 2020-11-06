@@ -14,10 +14,17 @@ class TestLoader(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_simple(self):
-        out = safe_load(YAML_DIR / 'simple.yaml')
+    def assertCorrect(self, file_name, target):
+        out = safe_load(file_name)
 
-        ref = [
+        self.assertIsInstance(out, list)
+        self.assertEqual(len(out), len(target))
+
+        for o, t in zip(out, target):
+            self.assertDictEqual(o, t)
+
+    def test_simple(self):
+        target = [
             {'x1': {'x': 4, 'y': 0}},
             {'x2': {'x': 7, 'y': -0.056315}},
             {'x3': {
@@ -26,8 +33,22 @@ class TestLoader(unittest.TestCase):
             }}
         ]
 
-        self.assertTrue(isinstance(out, list))
-        self.assertEqual(len(out), len(ref))
+        self.assertCorrect(YAML_DIR / 'simple.yaml', target)
 
-        for o, r in zip(out, ref):
-            self.assertDictEqual(o, r)
+    def test_nested(self):
+        target = [{
+            'level1': {
+                'x': 4,
+                'y': 0,
+                'level2': {
+                    'x': 7,
+                    'y': -0.056315,
+                    'level3': {
+                        'x': 'hello world',
+                        'y': '/this/is/a/path'
+                    }
+                }
+            }
+        }]
+
+        self.assertCorrect(YAML_DIR / 'nested.yaml', target)
