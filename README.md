@@ -21,17 +21,27 @@ pip install myaml
     x: 2**(3 - 1)
     y: (12 % 9) - sqrt(9)
 - x2:
-    x: (2**3) - 1
-    y: 12 % (9 - sqrt(4))
+    x: (2**3) - 1.0
+    y: -0.75 ** (9 - cos(3.1415) * log(2.718))
+- x3:
+    x: hello world
+    y: /this/is/a/path
 ```
-which will be evaluated at load-time:
+
+Math expressions will be evaluated at load-time.
+Any other strings will be left intact:
+
 ```python
 >>> import myaml
 >>> xs = myaml.safe_load('test.yaml')
 >>> xs
 [
-    {"x1": {"x": 4, "y": 0}},
-    {"x2": {"x": 7, "y": 5}}
+    {'x1': {'x': 4, 'y': 0}},
+    {'x2': {'x': 7, 'y': -0.056315}},
+    {'x3': {
+        'x': 'hello world',
+        'y': '/this/is/a/path'
+    }}
 ]
 ```
 

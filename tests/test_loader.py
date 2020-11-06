@@ -19,11 +19,15 @@ class TestLoader(unittest.TestCase):
 
         ref = [
             {'x1': {'x': 4, 'y': 0}},
-            {'x2': {'x': 7, 'y': 5}}
+            {'x2': {'x': 7, 'y': -0.056315}},
+            {'x3': {
+                'x': 'hello world',
+                'y': '/this/is/a/path'
+            }}
         ]
 
         self.assertTrue(isinstance(out, list))
-        self.assertEqual(len(out), 2)
+        self.assertEqual(len(out), len(ref))
 
         for o, r in zip(out, ref):
             self.assertDictEqual(o, r)
