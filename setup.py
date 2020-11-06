@@ -9,7 +9,8 @@ PKG = 'myaml'
 
 # Read version
 with open(f'{PKG}/__init__.py', 'rt') as fh:
-    version = re.search(r"([0-9\.]+)", fh.read().strip()).group()
+    match = re.search(r"(__version__\s*=\s*)'([0-9\.]+)'", fh.read().strip())
+    version = match.groups()[1]
 
 # Read requirements
 with open('requirements.txt', 'rt') as fh:
