@@ -1,5 +1,5 @@
 from __future__ import absolute_import
 
-from .loader import safe_load
+from .myaml import safe_load, dump
 
-__version__ = '0.0.2'
+__version__ = '0.0.4'

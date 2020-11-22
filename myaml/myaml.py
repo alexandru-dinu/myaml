@@ -69,6 +69,9 @@ class Evaluator(ast.NodeTransformer):
 
 
 def safe_load(file_name: str) -> dict:
+    """
+    Load contents from @file_name, evaluating math expressions, if any.
+    """
     with open(file_name, 'rt') as fp:
         contents = str(yaml.safe_load(fp))
 
@@ -77,3 +80,10 @@ def safe_load(file_name: str) -> dict:
     out  = ast.literal_eval(src)
 
     return out
+
+
+def dump(data, stream=None):
+    """
+    Simple and convenient wrapper over yaml.dump.
+    """
+    return yaml.dump(data, stream=stream)

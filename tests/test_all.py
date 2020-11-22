@@ -2,7 +2,7 @@ import json
 import unittest
 from pathlib import Path
 
-from myaml.loader import safe_load
+from myaml.myaml import safe_load, dump
 
 YAML_DIR = Path(__file__).resolve().parent / 'yaml'
 
