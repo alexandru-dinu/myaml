@@ -82,8 +82,8 @@ def safe_load(file_name: str) -> dict:
     return out
 
 
-def dump(data, stream=None):
+def dump(data, stream=None, **kwargs):
     """
     Simple and convenient wrapper over yaml.dump.
     """
-    return yaml.dump(data, stream=stream)
+    return yaml.dump(data, stream=stream, **kwargs)
