@@ -1,10 +1,10 @@
 ---
 - x1:
-    x: 2**(3 - 1)
-    y: (12 % 9) - sqrt(9)
+    x: !eval 2**(3 - 1)
+    y: !eval (12 % 9) - sqrt(9)
 - x2:
-    x: (2**3) - 1.0
-    y: -0.75 ** (9 - cos(3.1415) * log(2.718))
+    x: !eval (2**3) - 1.0
+    y: !eval -0.75 ** (9 - cos(3.1415) * log(2.718))
 - x3:
     x: hello world
     y: /this/is/a/path

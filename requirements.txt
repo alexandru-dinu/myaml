@@ -1,3 +1,2 @@
-astor
 PyYAML
 sympy
