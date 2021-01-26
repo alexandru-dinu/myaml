@@ -1,5 +1,6 @@
 # myaml
 
+[![workflow](https://github.com/alexandru-dinu/myaml/workflows/CI/badge.svg)](https://github.com/alexandru-dinu/myaml/actions?query=workflow%3ACI)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/alexandru-dinu/myaml/blob/master/LICENSE)
 [![pypi](https://img.shields.io/pypi/v/myaml.svg)](https://pypi.org/project/myaml/)
 
@@ -27,7 +28,7 @@ pip install myaml
     y: /this/is/a/path
 ```
 
-Math expressions will be evaluated at load-time.
+Expressions annotated with `!eval` tag will be evaluated at load-time.
 Any other strings will be left intact:
 
 ```python
