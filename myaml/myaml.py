@@ -5,7 +5,7 @@ from sympy.parsing.sympy_parser import parse_expr
 class ExprLoader(yaml.SafeLoader):
     def __init__(self, stream):
         super().__init__(stream)
-        self.add_constructor(tag='!eval', constructor=self.evaluate)
+        self.add_constructor(tag="!eval", constructor=self.evaluate)
 
     @staticmethod
     def evaluate(loader, node):
@@ -25,7 +25,7 @@ def safe_load(file_name: str) -> dict:
     """
     Load contents from @file_name, evaluating math expressions, if any.
     """
-    with open(file_name, 'rt') as fp:
+    with open(file_name, "rt") as fp:
         contents = yaml.load(fp, ExprLoader)
 
     return contents

@@ -3,6 +3,7 @@
 [![workflow](https://github.com/alexandru-dinu/myaml/workflows/CI/badge.svg)](https://github.com/alexandru-dinu/myaml/actions?query=workflow%3ACI)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/alexandru-dinu/myaml/blob/master/LICENSE)
 [![pypi](https://img.shields.io/pypi/v/myaml.svg)](https://pypi.org/project/myaml/)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 M(ath)YAML: evaluate math expressions in YAML files.
 
